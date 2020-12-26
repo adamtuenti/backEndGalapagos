@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from animalGalapagos.views import Animal
-# from django.config import settings
-# from django.config.urls.static import static
+from django.config import settings
+from django.config.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('analizarImagen/',Animal.as_view(), name= 'Animal')
+    path(r'analizarImagen/',Animal.as_view(), name= 'Animal')
 
     #path('login_participante/',login_participante.as_view(),name='login_participante'),
-] #+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
