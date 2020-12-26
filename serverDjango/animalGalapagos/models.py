@@ -11,7 +11,7 @@ class AnimalModel(models.Model):
     idAnimal = models.CharField(primary_key=True, max_length=254)
     imagenAnimal = models.ImageField(upload_to = "AnimalImagenes/")
     nombreAnimal = models.CharField(max_length=254)
-   # nombreAnimalTecnico = models.CharField(max_length=254)
+    nombreTecnico = models.CharField(max_length=100, default=None)
 
 
 	
