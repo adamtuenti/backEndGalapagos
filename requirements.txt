@@ -1,0 +1,57 @@
+asgiref==3.2.3
+cffi==1.14.0
+cryptography==2.8
+Django==3.0.3
+django-rest-knox==4.1.0
+djangorestframework==3.11.0
+pycparser==2.19
+pytz==2019.3
+six==1.14.0
+sqlparse==0.3.0
+whitenoise==5.0.1
+
+
+#instance = Norma.objects.first()
+#queryset |= Norma.objects.filter(pk=instance.pk)
+#print(queryset)
+queryset = Pais.objects.all()
+print(type(queryset))
+queryset2 = Norma.objects.all()
+paises = queryset.values()
+normas = queryset2.values()
+numerodepaises=paises.count()
+numerodenormas=normas.count() 
+###reservas=Norma.objects.filter(key_pais='1')
+array=[]
+api={}
+array2=[]
+array3=[]
+#api['norma']=array
+#print(api)
+for e in Pais.objects.all():
+	array.append(e.pais)
+#print(array)
+for i in array:
+	api[i]=array2
+
+#print(api)
+for reserva in paises:
+	#reserva['norma']=array
+	#print(reserva)
+	for reserva1 in normas:
+		#print(reserva1)
+		if reserva1['key_pais_id']==reserva['id_pais']:
+			#print(reserva['pais'],reserva1['norma'])
+			array3.append((reserva['pais'],reserva1['norma']))
+			#print(array3)
+#print(array3)
+d = defaultdict(list)
+#print(d)
+for k, v in array3:
+	d[k].append(v)	
+f=dict(d)
+print(f)
+efe = json.dumps(f, ensure_ascii=False)
+print(efe)
+final = json.loads(efe)
+print(type(final))
