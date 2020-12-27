@@ -6,7 +6,7 @@ from .serializers import analizarImagenSerializer
 from django.http import HttpResponse
 
 class Animal(generics.GenericAPIView):
-
+    #hola
     def analizarImagen(image):
 
         serializer_class = analizarImagenSerializer
