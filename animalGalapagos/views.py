@@ -14,9 +14,9 @@ class Animal(APIView):
         #serializer_class = analizarImagenSerializer
        
         #serializer = analizarImagenSerializer(data=request.data)
-        imagenAnimal = request.data.get('imagenAnimal')
+        imagenAnimal = request.FILES['file']
         print(imagenAnimal)
-        salida = {'nombreAnimal':'valor1','accuracy':10,'imagenAnimal':10}
+        salida = {'nombrnimal':imagenAnimal,'accuracy':10,'imagenAnimal':10}
         return Response(data=salida)
 
     

@@ -31,7 +31,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '&n6kut1f8i_kdmc17$wb$0sh#6q!s7rc-fp74+e0$h=u)3w(wv'
 # SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -204,4 +204,9 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 #     'PAGE_SIZE': 10
 # }
 
+
+DEFAULT_AUTHENTICATION_CLASSES: [
+    # 'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.BasicAuthentication',
+]
 

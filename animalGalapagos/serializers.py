@@ -6,7 +6,7 @@ from .models import AnimalModel
 class analizarImagenSerializer(serializers.ModelSerializer):
 	#nombreIntegrante = serializers.ReadOnlyField()
 	#apellidoIntegrante= serializers.ReadOnlyField()
-    imagenAnimal = serializers.ReadOnlyField()
+    imagenAnimal = serializers.SerializerMethodField()
     class Meta:
         model = AnimalModel
         fields = '_all_'
