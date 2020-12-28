@@ -1,20 +1,23 @@
 from django.shortcuts import render
 from rest_framework import generics
+from rest_framework.views import APIView
 from rest_framework import viewsets
 from .models import AnimalModel
 from .serializers import analizarImagenSerializer
 from django.http import HttpResponse
+from rest_framework.response import Response
+    
+class Animal(APIView):
 
-class Animal(generics.GenericAPIView):
-    #hola
-    def analizarImagen(image):
+    def post(self, request, *args, **kwargs):
 
-        serializer_class = analizarImagenSerializer
-        def post(self, request, *args, **kwargs):
-            serializer = analizarImagenSerializer(data=request.data)
-            imagenAnimal = request.data.get('imagenAnimal')
-
-            return HttpResponse('primer valor',10,'imagen')
+        #serializer_class = analizarImagenSerializer
+       
+        #serializer = analizarImagenSerializer(data=request.data)
+        imagenAnimal = request.data.get('imagenAnimal')
+        print(imagenAnimal)
+        salida = {'nombreAnimal':'valor1','accuracy':10,'imagenAnimal':10}
+        return Response(data=salida)
             # serializer.is_valid()
             # usuario = request.data.get('usuario')
             # final=User.objects.filter(id=usuario)
@@ -40,5 +43,3 @@ class Animal(generics.GenericAPIView):
     
     def funcion(imagen):
         return ['hola']
-
-            
