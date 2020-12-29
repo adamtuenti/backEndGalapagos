@@ -14,13 +14,24 @@ class Animal(APIView):
         #serializer_class = analizarImagenSerializer
        
         #serializer = analizarImagenSerializer(data=request.data)
-        imagenAnimal = request.FILES['file']
+        imagenAnimal = request.data.get('idAnimal')
+        
         print(imagenAnimal)
-        salida = {'nombrnimal':imagenAnimal,'accuracy':10,'imagenAnimal':10}
+        idA = 0
+        datos = AnimalModel.objects.filter(idAnimal=idA)
+        print(datos[0].idAnimal,datos[0].nombreAnimal)
+
+        salida = {'nombrnimal':datos[0].nombreAnimal,'nombreTecnico':datos[0].nombreTecnico}#,'imagenAnimal':datos[0].imagenAnimal}
         return Response(data=salida)
 
     
     def funcion(imagen):
         return ['hola']
+    
+# class DetalleAnimal(RetrieveAPIView):
+#     serializer_class = analizarImagenSerializer
+#     queryset = AnimalModel.objects.all()
+
+
 
             
