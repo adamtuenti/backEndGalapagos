@@ -21,7 +21,7 @@ class Animal(APIView):
         datos = AnimalModel.objects.filter(idAnimal=idA)
         print(datos[0].idAnimal,datos[0].nombreAnimal)
 
-        salida = {'nombrnimal':datos[0].nombreAnimal,'nombreTecnico':datos[0].nombreTecnico},'imagenAnimal':datos[0].imagenAnimal}
+        salida = {'nombrnimal':datos[0].nombreAnimal,'nombreTecnico':datos[0].nombreTecnico,'imagenAnimal':datos[0].imagenAnimal}
         return Response(data=salida)
 
     
