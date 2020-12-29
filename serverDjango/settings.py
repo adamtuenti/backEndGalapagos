@@ -210,3 +210,15 @@ DEFAULT_AUTHENTICATION_CLASSES: [
     'rest_framework.authentication.BasicAuthentication',
 ]
 
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd85v5b5eo3i43b',
+        'USER': 'ckfzmuvrvvbues',
+        'PASSWORD': 'c76f7df8732357629cfdc31cd70d45adae36160f7899b7d3516514702909c796',
+        'HOST': 'ec2-54-235-116-235.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
